@@ -1,0 +1,17 @@
+*.exe
+
+
+!releases/*.exe
+
+
+*.log
+*.obj
+*.o
+*.out
+
+
+.vscode/
+
+
+.DS_Store
+Thumbs.db

@@ -1,0 +1,66 @@
+ _______            __          _______         __  __
+|    |  |.-----..--|  |.-----. |_     _|.---.-.|  ||  |--.
+|       ||  _  ||  _  ||  -__|   |   |  |  _  ||  ||    <
+|__|____||_____||_____||_____|   |___|  |___._||__||__|__|
+                                              Author: ymkz
+
+
+=== How to Use Node Talk ===
+##verview
+
+    Node Talk is a lightweight, CUI-based chat application designed to operate on the same local network. 
+    It’s built exclusively for Windows, featuring a simple, single .c file architecture. No setup needed — just launch and instantly start real-time communication within your LAN.
+
+##Purpose
+
+    Enable real-time chat within a LAN without relying on the internet or cloud services.
+
+    Allow users to join the chat immediately by simply distributing the executable to Windows machines.
+
+    Adopt a lightweight, fast command-line interface (CUI) for smooth operation even on older PCs or virtual environments.
+
+    Serve as an impromptu communication tool in environments like schools, offices, and research facilities.
+
+##Key Features
+
+    Server/Client Modes: Choose to start as a chat host (“server”) or connect to an existing server (“client”) at launch.
+
+    Server Chat: The server itself can send messages and actively participate in conversations.
+
+    Multithreading: Separate threads handle sending and receiving, ensuring smooth asynchronous communication.
+
+    Usernames (Nicknames): Set any nickname when connecting.
+
+    Server Discovery: In client mode, using the /list command broadcasts a UDP query on the local network to find active servers, displaying their IP addresses and ports.
+
+    Private Messages: Use /w <nickname> <message> to send a message directly to a specific user.
+
+    How to Use Private Messages:
+
+        Check the nickname of the user you want to message privately.
+
+        Type /w <nickname> <message> in the command line and hit Enter.
+
+        Example: /w Tom Hello, how are you?
+
+        Only the targeted user receives the message; others won’t see it.
+
+        The recipient sees the message formatted as [PRIVATE from <sender’s nickname>] <message>.
+
+    Connection/Disconnection Notifications: All users are notified in real-time when someone connects or disconnects.
+
+    Safe Exit: The app safely shuts down on /quit command or when receiving Ctrl+C signal.
+
+    Command-line Arguments: You can start the app directly with arguments like NodeTalk.exe -s <port> to launch server mode or NodeTalk.exe -c <IP>:<port> to connect as a client.
+
+##Technical Specifications
+
+    Programming Language: C (C99)
+
+    Communication Protocols: TCP/IPv4 (Winsock2 API) and UDP broadcast
+
+    Threads: Windows Threads (_beginthreadex)
+
+    UI: Windows Console (standard input/output)
+
+    Build: Supports cross-compiling on macOS with MinGW-w64
